@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldObject: {fileID: 0}
-  heldObjectMoveRate: 3
+  heldObjectMoveRate: 5
   heldTransform: {fileID: 256109006365888591}
   objectBlockedDistance: 1
   holdOffset: 3
