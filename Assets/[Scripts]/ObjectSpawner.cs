@@ -13,6 +13,10 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private float timer = 1.0f;
 
+    [SerializeField]
+    private bool isInOrder = false;
+
+    private int currentIndex = -1;
     private BoxCollider spawnArea;
     private IEnumerator spawnCoroutine;
 
@@ -58,11 +62,25 @@ public class ObjectSpawner : MonoBehaviour
 
     private void SpawnObject()
     {
-        int index = Random.Range(0, spawnableObjects.Count);
+        int index;
+
+        if (isInOrder)
+            index = GetNextIndex();
+        else
+            index = Random.Range(0, spawnableObjects.Count);
+
         GameObject prefab = spawnableObjects[index];
 
         GameObject obj = Instantiate(prefab, transform, true);
         obj.transform.position = GetSpawnPoint();
+    }
+
+    private int GetNextIndex()
+    {
+        if (++currentIndex >= spawnableObjects.Count)
+            currentIndex = 0;
+
+        return currentIndex;
     }
 
     /// Coroutines ///

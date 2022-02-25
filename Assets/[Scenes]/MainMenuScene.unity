@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-47792
+  m_Name: pb_Mesh-176170
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1321,6 +1321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 917097021}
     m_Modifications:
+    - target: {fileID: 1808113033174698150, guid: d25af761484148b4192ccbceedf4f63b, type: 3}
+      propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: CreditsScene
+      objectReference: {fileID: 0}
     - target: {fileID: 7072921860020770913, guid: d25af761484148b4192ccbceedf4f63b, type: 3}
       propertyPath: m_Mesh
       value: 
