@@ -96,7 +96,7 @@
             "id": "306609df-8847-4ebc-927f-f09fe0e1b68b",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "GrabObject",
                     "type": "Button",
                     "id": "6acfa698-3000-4f4b-83cb-c111aeff41c9",
                     "expectedControlType": "Button",
@@ -108,11 +108,11 @@
                 {
                     "name": "",
                     "id": "6b6febe1-c060-46ca-bdd8-04610398c2cb",
-                    "path": "",
-                    "interactions": "",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "GrabObject",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
