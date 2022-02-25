@@ -1,0 +1,123 @@
+{
+    "name": "ControllerInputActions",
+    "maps": [
+        {
+            "name": "CameraActionMap",
+            "id": "fbd02fc4-790f-4836-b348-1d9357a5fb57",
+            "actions": [
+                {
+                    "name": "RotateCameraHorizontal",
+                    "type": "Value",
+                    "id": "368d0fec-d042-4003-b1fd-c565fa354e57",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotateCameraVertical",
+                    "type": "Value",
+                    "id": "429adbbd-f8b6-4a06-82ee-6f2c502c3866",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "KeyboardController",
+                    "id": "04f9da0a-2273-4d01-863a-02a13ad817c4",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraHorizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "757bdfe4-4fce-4625-a259-aeaec3f15185",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "16f438e7-01a9-43d1-8d04-17450103387f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "KeyboardController",
+                    "id": "00f4a603-ee8c-4e2a-9e5d-593bf4b6e4b3",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraVertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "40456d71-7a70-4bae-b01e-a7ffc7012d6e",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "dd546e6e-d9d5-45d1-b9bc-5344b26aeb42",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraVertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "ObjectActionMap",
+            "id": "306609df-8847-4ebc-927f-f09fe0e1b68b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "6acfa698-3000-4f4b-83cb-c111aeff41c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6b6febe1-c060-46ca-bdd8-04610398c2cb",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
