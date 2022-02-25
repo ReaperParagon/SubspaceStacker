@@ -14,10 +14,16 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private GameObject cameraObject;
 
+    [SerializeField]
+    private Vector2 mouseSensitivity = new Vector2(0.2f, 0.1f);
+
     private Vector2 inputVector;
+    private bool rotateWithMouse;
 
     private void FixedUpdate()
     {
+        MouseMovement();
+
         if (inputVector == Vector2.zero)
             return;
 
@@ -34,7 +40,18 @@ public class CameraController : MonoBehaviour
         cameraObject.transform.localPosition = new Vector3(0.0f, vOffset, cameraObject.transform.localPosition.z);
     }
 
+    /// Functions ///
 
+    private void MouseMovement()
+    {
+        if (!rotateWithMouse)
+            return;
+
+        float x = Mouse.current.delta.x.ReadValue() * mouseSensitivity.x;
+        float y = Mouse.current.delta.y.ReadValue() * mouseSensitivity.y;
+
+        inputVector = new Vector2(x, y);
+    }
 
     /// Input System ///
 
@@ -46,6 +63,14 @@ public class CameraController : MonoBehaviour
     public void OnRotateCameraVertical(InputValue value)
     {
         inputVector.y = value.Get<float>();
+    }
+
+    public void OnRotateCameraWithMouse(InputValue value)
+    {
+        rotateWithMouse = value.isPressed;
+
+        if (!value.isPressed)
+            inputVector = Vector3.zero;
     }
 
 }

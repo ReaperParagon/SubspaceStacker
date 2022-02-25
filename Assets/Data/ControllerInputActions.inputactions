@@ -20,6 +20,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RotateCameraWithMouse",
+                    "type": "Button",
+                    "id": "8760babf-8f1a-49ae-b61b-ae9501822fde",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -88,6 +96,17 @@
                     "action": "RotateCameraVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2ce7a3f5-d35b-421c-9943-ec7744c4e696",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraWithMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -516,10 +516,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3490288748360460168, guid: 6e52de2571830b544acd433af315d5a1, type: 3}
-      propertyPath: timer
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3490288748360460169, guid: 6e52de2571830b544acd433af315d5a1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -634,6 +630,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4658891363031801136, guid: e4edc19e8a34676489dec8f5afbdf4e3, type: 3}
+      propertyPath: mouseSensitivity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4658891363031801137, guid: e4edc19e8a34676489dec8f5afbdf4e3, type: 3}
       propertyPath: m_RootOrder
       value: 3

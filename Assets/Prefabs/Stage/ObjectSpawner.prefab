@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 8657601364958728565, guid: 5362fff3267d360418303608ff0c3e8e, type: 3}
   - {fileID: 5312728306408778524, guid: d9ec380ff1881f5459c0f06e10ba159f, type: 3}
   - {fileID: 6481176360878538746, guid: 2982614aab2283a4eb7c1db546d26a6c, type: 3}
-  timer: 0.1
+  timer: 1
 --- !u!65 &3490288748360460172
 BoxCollider:
   m_ObjectHideFlags: 0
