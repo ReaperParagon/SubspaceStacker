@@ -8,7 +8,7 @@ public class ObjectSpawner : MonoBehaviour
     private LayerMask platformLayerMask;
 
     [SerializeField]
-    private GameObject spawnableObject;
+    private List<GameObject> spawnableObjects = new List<GameObject>();
 
     [SerializeField]
     private float timer = 1.0f;
@@ -58,7 +58,10 @@ public class ObjectSpawner : MonoBehaviour
 
     private void SpawnObject()
     {
-        GameObject obj = Instantiate(spawnableObject, transform, true);
+        int index = Random.Range(0, spawnableObjects.Count);
+        GameObject prefab = spawnableObjects[index];
+
+        GameObject obj = Instantiate(prefab, transform, true);
         obj.transform.position = GetSpawnPoint();
     }
 
