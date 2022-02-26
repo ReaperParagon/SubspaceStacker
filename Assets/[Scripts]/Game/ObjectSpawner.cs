@@ -11,13 +11,10 @@ public class ObjectSpawner : MonoBehaviour
     private LayerMask platformLayerMask;
 
     [SerializeField]
-    private List<GameObject> spawnableObjects = new List<GameObject>();
+    private Collection spawnableObjects;
 
     [SerializeField]
     private float timer = 1.0f;
-
-    [SerializeField]
-    private bool isInOrder = false;
 
     private int currentIndex = -1;
     private BoxCollider spawnArea;
@@ -62,30 +59,22 @@ public class ObjectSpawner : MonoBehaviour
         return GetSpawnPoint();
     }
 
+    private Quaternion GetRandomRotation()
+    {
+        float rotation = Random.Range(0.0f, 360.0f);
+
+        return Quaternion.Euler(0.0f, rotation, 0.0f);
+    }
 
     private void SpawnObject()
     {
-        int index;
-
-        if (isInOrder)
-            index = GetNextIndex();
-        else
-            index = Random.Range(0, spawnableObjects.Count);
-
-        GameObject prefab = spawnableObjects[index];
+        GameObject prefab = spawnableObjects.GetObject();
 
         GameObject obj = Instantiate(prefab, transform, true);
         obj.transform.position = GetSpawnPoint();
+        obj.transform.rotation = GetRandomRotation();
 
         OnObjectSpawn?.Invoke();
-    }
-
-    private int GetNextIndex()
-    {
-        if (++currentIndex >= spawnableObjects.Count)
-            currentIndex = 0;
-
-        return currentIndex;
     }
 
     /// Coroutines ///

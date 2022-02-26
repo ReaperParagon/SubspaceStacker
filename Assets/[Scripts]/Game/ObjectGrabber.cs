@@ -9,6 +9,7 @@ public class ObjectGrabber : MonoBehaviour
     public GameObject heldObject;
     private Rigidbody heldObjectRigidbody;
     public float heldObjectMoveRate = 10.0f;
+    public float heldObjectRotationRate = 1.0f;
     public Transform heldTransform;
     public float objectBlockedDistance = 10.0f;
     public float holdOffset = 20.0f;
@@ -43,10 +44,14 @@ public class ObjectGrabber : MonoBehaviour
             heldObjectRigidbody.velocity = heldObjectRigidbody.angularVelocity = Vector3.zero;
 
             // Lerp Object to the held position
-            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, heldTransform.transform.position, Time.fixedDeltaTime * heldObjectMoveRate);
+            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, heldTransform.position, Time.fixedDeltaTime * heldObjectMoveRate);
 
             // and to rotation
-            heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, heldTransform.transform.rotation, Time.fixedDeltaTime * heldObjectMoveRate);
+            Vector3 heldTransformEulerAngles = heldTransform.rotation.eulerAngles;
+            Vector3 objectEulerAngles = heldObject.transform.rotation.eulerAngles;
+
+            Quaternion rotation = Quaternion.Euler(heldTransformEulerAngles.x, objectEulerAngles.y, heldTransformEulerAngles.z);
+            heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, rotation, Time.fixedDeltaTime * heldObjectRotationRate);
         }
     }
 

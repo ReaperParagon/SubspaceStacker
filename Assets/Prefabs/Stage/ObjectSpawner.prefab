@@ -47,13 +47,7 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  spawnableObjects:
-  - {fileID: 406187237213844833, guid: da2cbd5622dfba046a39aa1e7f8b6323, type: 3}
-  - {fileID: 7649312558087805225, guid: 26c843700afbbf24e9f4f227f2372d4b, type: 3}
-  - {fileID: 7396139420000672416, guid: c0e5b220838b9ab44a3e7344f2c7a48a, type: 3}
-  - {fileID: 8657601364958728565, guid: 5362fff3267d360418303608ff0c3e8e, type: 3}
-  - {fileID: 5312728306408778524, guid: d9ec380ff1881f5459c0f06e10ba159f, type: 3}
-  - {fileID: 6481176360878538746, guid: 2982614aab2283a4eb7c1db546d26a6c, type: 3}
+  spawnableObjects: {fileID: 11400000, guid: b189ec31d3c5d0a4688605892c38bf43, type: 2}
   timer: 1
 --- !u!65 &3490288748360460172
 BoxCollider:
