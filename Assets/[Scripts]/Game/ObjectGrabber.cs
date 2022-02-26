@@ -119,10 +119,6 @@ public class ObjectGrabber : MonoBehaviour
             
             lookedAtObj = BlockHelperFunctions.GetBlockParent(hit.transform).gameObject;
 
-            // Check if there is anything above the object
-            if (Physics.BoxCast(lookedAtObj.transform.position, hit.collider.bounds.extents, Vector3.up, Quaternion.identity, objectBlockedDistance))
-                return;
-
             PickupObject(lookedAtObj, hit.collider);
         }
         else

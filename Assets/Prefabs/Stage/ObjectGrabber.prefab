@@ -55,7 +55,7 @@ MonoBehaviour:
   heldObjectRotationRate: 1
   heldTransform: {fileID: 256109006365888591}
   objectBlockedDistance: 1
-  holdOffset: 3
+  holdOffset: 4
 --- !u!114 &256109006365888589
 MonoBehaviour:
   m_ObjectHideFlags: 0
