@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     private GameObject pauseMenuUI;
     
     private bool isPaused;
+    public bool allowPauseMenu = true;
 
     /// Functions ///
 
@@ -17,16 +18,24 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(visible);
     }
 
+    public void ShowPauseMenu(bool pause)
+    {
+        if (!allowPauseMenu)
+            return;
+
+        PauseGame(pause);
+        SetUIVisible(pause);
+    }
+
     public void PauseGame(bool pause)
     {
         isPaused = pause;
-        SetUIVisible(isPaused);
         Time.timeScale = (pause ? 0.0f : 1.0f);
     }
 
     public void TogglePause()
     {
-        PauseGame(!isPaused);
+        ShowPauseMenu(!isPaused);
     }
 
 

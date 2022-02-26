@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
+    public delegate void OnObjectSpawnEvent();
+    public static event OnObjectSpawnEvent OnObjectSpawn;
+
     [SerializeField]
     private LayerMask platformLayerMask;
 
@@ -73,6 +76,8 @@ public class ObjectSpawner : MonoBehaviour
 
         GameObject obj = Instantiate(prefab, transform, true);
         obj.transform.position = GetSpawnPoint();
+
+        OnObjectSpawn?.Invoke();
     }
 
     private int GetNextIndex()
