@@ -18,10 +18,13 @@ public class ObjectSpawner : MonoBehaviour
 
     private BoxCollider spawnArea;
     private IEnumerator spawnCoroutine;
+    private GameObject nextObject;
+    private ObjectPreview preview;
 
     void OnEnable()
     {
         spawnArea = GetComponent<BoxCollider>();
+        preview = FindObjectOfType<ObjectPreview>();
 
         spawnCoroutine = SpawnObjectCoroutine();
         StartCoroutine(spawnCoroutine);
@@ -65,11 +68,20 @@ public class ObjectSpawner : MonoBehaviour
         return Quaternion.Euler(0.0f, rotation, 0.0f);
     }
 
+    private void GetNextObject()
+    {
+        nextObject = spawnableObjects.GetObject();
+
+        if (preview != null)
+            preview.SetObject(nextObject);
+    }
+
     private void SpawnObject()
     {
-        GameObject prefab = spawnableObjects.GetObject();
+        if (nextObject == null)
+            return;
 
-        GameObject obj = Instantiate(prefab, transform, true);
+        GameObject obj = Instantiate(nextObject, transform, true);
         obj.transform.position = GetSpawnPoint();
         obj.transform.rotation = GetRandomRotation();
 
@@ -80,6 +92,7 @@ public class ObjectSpawner : MonoBehaviour
 
     IEnumerator SpawnObjectCoroutine()
     {
+        GetNextObject();
         yield return new WaitForSeconds(timer);
         SpawnObject();
 

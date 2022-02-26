@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void LoseLife()
     {
+        score--;
         if (--lives <= 0)
             EndGame();
 
