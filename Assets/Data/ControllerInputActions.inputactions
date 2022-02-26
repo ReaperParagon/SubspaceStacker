@@ -136,6 +136,44 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GameActionMap",
+            "id": "7227a892-103e-4936-a0e6-77f407713cca",
+            "actions": [
+                {
+                    "name": "GamePause",
+                    "type": "Button",
+                    "id": "9f2f132d-145f-426d-a5d9-fe206c6d048e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b42973f1-f0bc-4b9f-8c08-94e0c1cb7ac7",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GamePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8e09d26-aa46-40ca-aab5-b2578d7395b9",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GamePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
