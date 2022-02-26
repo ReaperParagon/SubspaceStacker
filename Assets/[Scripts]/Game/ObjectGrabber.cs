@@ -8,6 +8,11 @@ public class ObjectGrabber : MonoBehaviour
     [Header("Held Object")]
     public GameObject heldObject;
     private Rigidbody heldObjectRigidbody;
+    private Collider heldObjectCollider;
+
+    public LayerMask ignoreRayLayerMask;
+    public LayerMask blockLayerMask;
+
     public float heldObjectMoveRate = 10.0f;
     public float heldObjectRotationRate = 1.0f;
     public Transform heldTransform;
@@ -27,7 +32,7 @@ public class ObjectGrabber : MonoBehaviour
 
     private void MoveGrabber()
     {
-        if (!LookAtCheck(out RaycastHit hit))
+        if (!LookAtCheck(out RaycastHit hit, ~ignoreRayLayerMask))
             return;
 
         // Move Transform to where the mouse is looking
@@ -55,7 +60,7 @@ public class ObjectGrabber : MonoBehaviour
         }
     }
 
-    public void PickupObject(GameObject objectToHold)
+    public void PickupObject(GameObject objectToHold, Collider objectCollider)
     {
         // Check if we are holding an object and if the object is a block
         if (!IsObjectBeingHeld && objectToHold.CompareTag("Block"))
@@ -63,7 +68,11 @@ public class ObjectGrabber : MonoBehaviour
             // Set our held object
             heldObject = objectToHold;
             heldObjectRigidbody = heldObject.GetComponent<Rigidbody>();
+            heldObjectCollider = objectCollider;
             IsObjectBeingHeld = true;
+
+            // Set the Layer Mask
+            heldObjectCollider.gameObject.layer = (int)Mathf.Log(ignoreRayLayerMask.value, 2);
 
             // Disable gravity
             heldObjectRigidbody.useGravity = false;
@@ -77,19 +86,23 @@ public class ObjectGrabber : MonoBehaviour
             // Enable gravity
             heldObjectRigidbody.useGravity = true;
 
+            // Set the Layer Mask
+            heldObjectCollider.gameObject.layer = (int)Mathf.Log(blockLayerMask.value, 2);
+
             // Release our held object
             heldObject = null;
             heldObjectRigidbody = null;
+            heldObjectCollider = null;
             IsObjectBeingHeld = false;
         }
     }
 
-    private bool LookAtCheck(out RaycastHit hit)
+    private bool LookAtCheck(out RaycastHit hit, int layerMask)
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         // Cast a ray in look direction at distance
-        return Physics.Raycast(ray, out hit, 500.0f);
+        return Physics.Raycast(ray, out hit, 500.0f, layerMask);
     }
 
     /// Input System ///
@@ -101,23 +114,16 @@ public class ObjectGrabber : MonoBehaviour
             GameObject lookedAtObj;
 
             // Get Looked at object
-            if (LookAtCheck(out RaycastHit hit))
-            {
-                Transform objTransform = BlockHelperFunctions.GetBlockParent(hit.transform);
-
-                if (objTransform == null || !objTransform.CompareTag("Block"))
-                    return;
-
-                lookedAtObj = objTransform.gameObject;
-            }
-            else
+            if (!LookAtCheck(out RaycastHit hit, blockLayerMask))
                 return;
+            
+            lookedAtObj = BlockHelperFunctions.GetBlockParent(hit.transform).gameObject;
 
             // Check if there is anything above the object
-            if (Physics.BoxCast(lookedAtObj.transform.position, hit.collider.bounds.extents, Vector3.up, lookedAtObj.transform.rotation, objectBlockedDistance))
+            if (Physics.BoxCast(lookedAtObj.transform.position, hit.collider.bounds.extents, Vector3.up, Quaternion.identity, objectBlockedDistance))
                 return;
 
-            PickupObject(lookedAtObj);
+            PickupObject(lookedAtObj, hit.collider);
         }
         else
         {

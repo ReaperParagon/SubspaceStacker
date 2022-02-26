@@ -16,7 +16,6 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private float timer = 1.0f;
 
-    private int currentIndex = -1;
     private BoxCollider spawnArea;
     private IEnumerator spawnCoroutine;
 

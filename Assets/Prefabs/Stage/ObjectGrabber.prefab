@@ -45,7 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldObject: {fileID: 0}
+  ignoreRayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4
+  blockLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   heldObjectMoveRate: 5
+  heldObjectRotationRate: 1
   heldTransform: {fileID: 256109006365888591}
   objectBlockedDistance: 1
   holdOffset: 3

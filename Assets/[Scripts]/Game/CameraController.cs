@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
             return;
 
         float x = Mouse.current.delta.x.ReadValue() * mouseSensitivity.x;
-        float y = Mouse.current.delta.y.ReadValue() * mouseSensitivity.y;
+        float y = -Mouse.current.delta.y.ReadValue() * mouseSensitivity.y;
 
         inputVector = new Vector2(x, y);
     }
