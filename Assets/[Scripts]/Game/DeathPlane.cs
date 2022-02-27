@@ -17,6 +17,9 @@ public class DeathPlane : MonoBehaviour
 
     private void PlayAudio()
     {
+        if (audioSource == null)
+            return;
+
         if (audioSource.isPlaying)
             audioSource.Stop();
 
@@ -41,7 +44,8 @@ public class DeathPlane : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Block"))
         {
-            StartCoroutine(PlayParticle_Coroutine(other.transform.position));
+            if (splashParticleSystem != null)
+                StartCoroutine(PlayParticle_Coroutine(other.transform.position));
 
             PlayAudio();
 
