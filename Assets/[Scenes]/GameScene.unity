@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9d8c8b8519503354f86d32a9b63434ae, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 159fd630772f19043b33b4d93061465c, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2920,7 +2920,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.18910751, y: -0.00000044767057, z: 0.00000008621347, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.00000041387875, z: 0.00000007970576, w: 0.9819564}
   m_LocalPosition: {x: 0.00002193451, y: 10, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5082,11 +5082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4658891363980398339, guid: e4edc19e8a34676489dec8f5afbdf4e3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000044767057
+      value: -0.00000041387875
       objectReference: {fileID: 0}
     - target: {fileID: 4658891363980398339, guid: e4edc19e8a34676489dec8f5afbdf4e3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000008621347
+      value: 0.00000007970576
       objectReference: {fileID: 0}
     - target: {fileID: 4658891363980398340, guid: e4edc19e8a34676489dec8f5afbdf4e3, type: 3}
       propertyPath: m_Lens.OrthographicSize
