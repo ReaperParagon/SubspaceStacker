@@ -19,6 +19,12 @@ public class ObjectGrabber : MonoBehaviour
     public float objectBlockedDistance = 10.0f;
     public float holdOffset = 20.0f;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioSource grabAudioSource;
+    [SerializeField]
+    private AudioSource dropAudioSource;
+
     private bool IsObjectBeingHeld;
 
 
@@ -65,6 +71,8 @@ public class ObjectGrabber : MonoBehaviour
         // Check if we are holding an object and if the object is a block
         if (!IsObjectBeingHeld && objectToHold.CompareTag("Block"))
         {
+            PlayAudio(grabAudioSource);
+
             // Set our held object
             heldObject = objectToHold;
             heldObjectRigidbody = heldObject.GetComponent<Rigidbody>();
@@ -83,6 +91,8 @@ public class ObjectGrabber : MonoBehaviour
     {
         if (IsObjectBeingHeld)
         {
+            PlayAudio(dropAudioSource);
+
             // Enable gravity
             heldObjectRigidbody.useGravity = true;
 
@@ -103,6 +113,14 @@ public class ObjectGrabber : MonoBehaviour
 
         // Cast a ray in look direction at distance
         return Physics.Raycast(ray, out hit, 500.0f, layerMask);
+    }
+
+    private void PlayAudio(AudioSource audioSource)
+    {
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+
+        audioSource.Play();
     }
 
     /// Input System ///

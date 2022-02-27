@@ -11,6 +11,11 @@ public class MenuOption : MonoBehaviour
 
     /// Functions ///
 
+    public void PlayButtonSoundEffect()
+    {
+        AudioManager.instance.PlayMenuClip();
+    }
+
     public void GoToScene(string scene)
     {
         SceneManager.LoadScene(scene);
