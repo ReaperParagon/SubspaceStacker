@@ -10,6 +10,8 @@ public class DeathPlane : MonoBehaviour
     [SerializeField]
     private GameObject splashParticleSystem;
 
+    /// Events ///
+
     public delegate void OnObjectFallEvent();
     public static event OnObjectFallEvent OnObjectFell;
 

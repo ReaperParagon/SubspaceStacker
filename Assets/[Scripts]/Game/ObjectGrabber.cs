@@ -34,6 +34,11 @@ public class ObjectGrabber : MonoBehaviour
         MoveHeldObject();
     }
 
+    /// Events ///
+
+    public delegate void OnGrabEvent(bool grabbed, Transform follow);
+    public static event OnGrabEvent OnGrab;
+
     /// Functions ///
 
     private void MoveGrabber()
@@ -84,6 +89,9 @@ public class ObjectGrabber : MonoBehaviour
 
             // Disable gravity
             heldObjectRigidbody.useGravity = false;
+
+            // Event
+            OnGrab?.Invoke(IsObjectBeingHeld, heldObject.transform);
         }
     }
 
@@ -104,6 +112,9 @@ public class ObjectGrabber : MonoBehaviour
             heldObjectRigidbody = null;
             heldObjectCollider = null;
             IsObjectBeingHeld = false;
+
+            // Event
+            OnGrab?.Invoke(IsObjectBeingHeld, null);
         }
     }
 
